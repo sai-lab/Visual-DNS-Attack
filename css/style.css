@@ -1,0 +1,107 @@
+.UI{
+	position: relative;
+	left: 300px;
+}
+
+#dictionary{
+	display: inline-block;
+	text-align: center;
+	width: 10%;
+}
+
+:disabled.buttonimage{
+	background-color: #9f9f9f;
+	opacity: 1;
+	cursor: no-drop;
+}
+
+
+.buttonimage{
+	width:110px;
+	font-size:14px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #2753aa;
+	color: #fff;
+	border-style: none;
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px 1px #555;
+	cursor: pointer;
+	overflow: visible;
+}
+
+.buttonimage:hover{
+	opacity: 0.7;
+}
+
+#usr{
+	display: inline-block;
+	font-size: 20px;
+	text-align: center;
+}
+
+#host1, #host2{
+	width: 120px;
+}
+
+.small{
+	width: 90%;
+	height: 90%;
+}
+
+#cash{
+	margin-left: 90px;
+	display: inline-block;
+	text-align: center;
+
+}
+
+#attacker-color{
+	background-color: blue;
+	overflow: hidden;
+}
+
+div{
+	width: 700px;
+}
+
+#inline-block{
+	display: inline-block;
+}
+
+
+.pull-right{
+	float: right;
+}
+
+.pull-left{
+	float: left;
+}
+
+.btn-mouseover:hover + .mouseover-box{
+	position: relative;
+  display: inline-block;
+
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  margin-left: 20px;
+  background: #e0edff;
+}
+
+.mouseover-box:before {
+  content: "";
+  position: absolute;
+  top:  70%;
+  left: -25px;
+  margin-top: -15px;
+  border: 10px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+ 
+.mouseover-box{
+	display: none;
+	text-align: justify;
+	border-radius:5px;
+}
