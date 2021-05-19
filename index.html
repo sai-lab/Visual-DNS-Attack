@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Visual DNS Attack</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.1/leader-line.min.js"></script>
+</head>
+<body>
+<div class="UI">
+	<div>
+		<inline id="dictionary"><img src="img/mainsaba2.png"><p>DNS権威サーバ</p></inline>
+		<inline id="usr" class="pull-right"><img class="small" src="img/usr2.png"><p>ユーザ</p></inline> <!-- ユーザ画面の表示 -->
+		<inline id="cash"><img class="small" src="img/cashsaba2.png"><p>キャッシュサーバ</p></inline>
+	</div>
+	<br><br><br><br>
+
+	<div>
+		<inline id="attacker" class="pull-right"><img class="small" src="img/usr3.png"><p>クラッカー</p></inline>
+		<inline id="host">
+			<div>
+				<inline  class="btn-mouseover">
+					<img src="img/address3.png"><br>
+					<span id="virushost">123.200.200.1</span>
+				</inline>
+				<!-- <inline class="mouseover-box">virus.com</inline> -->
+			</div>
+			<div>
+				<inline  class="btn-mouseover">
+					<img src="img/address2.png"><br>
+					<span id="host1">111.111.111.111</span>
+				</inline>
+				<inline class="mouseover-box">example.com</inline>
+			</div>
+			<div>
+				<inline class="btn-mouseover">
+					<img src="img/address2.png"><br>
+					<span id="host2">111.222.144.244</span>
+				</inline>
+				<inline class="mouseover-box">example2.com</inline>
+			</div>
+		</inline>
+	</div>
+
+	<div>
+	<a onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';" style="cursor: pointer;">▼キャッシュサーバの中身▼</a></div>
+
+		<div id="open1" style="display:none;clear:both;">
+			<table id="cashTable">
+			<th>ドメイン名</th><th>address</th>
+			 <!-- <tr><td><input class="cashts" type="text" value="hoge2.com"></td><td><input class="cashts" type="text" value="111.222.333.444"></td></tr> -->
+			</table>
+		</div>
+	<hr>
+
+<!--プルダウンメニューで -->
+	<br>
+	<div id="inline-block">
+		<button type="button" id="deleteButton" class="buttonimage" onclick="line_delete()">キャッシュ削除</button>
+		<button type="button" id="addButton" class="buttonimage" onclick="addAddress()">IPアドレス追加</button>
+		<br><br>
+		<div>fast<input id="range" type="range" name="range" min="100" max="2000" value="1000" step
+			="1" style="width:150px">slow</div>
+		<inline class="pull-right"><!--ハッカーサイドのonoff機能を付ける -->
+			<p>クラッカーサイド</p>
+			<form name="form2">
+				<select name="target" id="hackerMenu">
+					<option value="URL1">example.com</option>
+					<option value="URL2">example2.com</option> 
+				</select>
+				<button type="button" id="hackerHost" class="buttonimage" onclick="poisoning()">罠設置</button>
+				<button type="button" id="hackerHost2" class="buttonimage" onclick="onetimePoisoning()">一個ずつ</button>
+			</form>
+		</inline>
+		<div>
+			<form name="form1">
+				<p>ユーザサイド</p>
+				<select name="URL" id="hostMenu">
+					<option value="URL1">example.com</option>
+					<option value="URL2">example2.com</option> 
+				</select>
+				<button type="button" id="buttonHost" class="buttonimage" onclick="surfing()">取得</button>
+				<button type="button" id="onceButton" class="buttonimage" onclick="onetimeCheck()">一個ずつ</button>
+			</form>
+		</div>
+	</div>
+	<script async type="module" src="javascript/myscript.js"></script>
+</div>
+</body>
+</html>
