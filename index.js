@@ -59,17 +59,10 @@ window.onload = function(){
   	document.getElementById('cashTable').appendChild(tr);
 }
 
-for (var i = 5; i >= 0; i--) {
+for (var i = 1; i <= 5 ; i++) {
   AttackCash[i] = new LeaderLine(
-    LeaderLine.pointAnchor(document.getElementById('attacker'), {
-      x: 0,
-      y: 20*i,
-    }),
-    LeaderLine.pointAnchor(document.getElementById('cash'), {
-      x: 80,
-      y: 20*i,
-    }),
-    {hide: false, middleLabel: '攻撃'});
+    document.getElementById('attacker'),
+    document.getElementById('cash'),{hide: true, size: i*3, middleLabel: '攻撃'});
 }
 
 

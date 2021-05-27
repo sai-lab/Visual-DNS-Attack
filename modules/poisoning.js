@@ -24,12 +24,13 @@ export async function poisoning(){
 		await sleep(timer);
 		cashIP = line_add(table, mainURL, "123.200.200.1");//直書きはのちに変更したい
 		//showHide(fromAttacktoCash_poison);
-		for (var i = AttackCash.length - 1; i >= 0; i--) {
-			showHide(AttackCash[i]);
-		}
+		//-- IDビット数によって矢印の太さを変えて表示している
+		showHide(AttackCash[document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent]);
 		await sleep(timer);
 	}else{
 		alert('キャッシュにすでにあるため送り込むことができない');
 	}
+	//--攻撃回数も書き換え
+	document.getElementById('attackCount').textContent = "攻撃回数"+ (2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent) +"回";
 	disabledButton(null, false);
 }
