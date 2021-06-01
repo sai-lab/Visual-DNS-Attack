@@ -15,11 +15,7 @@
 			<form name="form3">
 				<p>
 				IDのビット数
-				<select name="cashID">
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
+				<select name="cashID" id="cashsabaID">
 				</select>
 			</form>
 			</p>
@@ -78,7 +74,7 @@
 		<div>fast<input id="range" type="range" name="range" min="100" max="2000" value="1000" step
 			="1" style="width:150px">slow</div>
 		<inline class="pull-right"><!--ハッカーサイドのonoff機能を付ける -->
-			<p>クラッカーサイド</p>
+			<p>クラッカーサイド(攻撃上限回数100)</p><!-- のちに攻撃回数選択可能にする-->
 			<form name="form2">
 				<select name="target" id="hackerMenu">
 					<option value="URL1">example.com</option>

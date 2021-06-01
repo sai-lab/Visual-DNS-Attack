@@ -59,10 +59,17 @@ window.onload = function(){
   	document.getElementById('cashTable').appendChild(tr);
 }
 
-for (var i = 1; i <= 5 ; i++) {
+for (var i = 1; i <= 16 ; i++) {
   AttackCash[i] = new LeaderLine(
     document.getElementById('attacker'),
     document.getElementById('cash'),{hide: true, size: i*3, middleLabel: '攻撃'});
+}
+
+let option;
+for (var i = 2; i <= 16; i++) {
+  option = document.createElement('option');
+  option.innerHTML=i;
+  document.getElementById('cashsabaID').appendChild(option);
 }
 
 

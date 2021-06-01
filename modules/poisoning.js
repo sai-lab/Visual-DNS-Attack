@@ -5,6 +5,7 @@ import {sleep} from './sleep.js';
 import {line_add} from './line_add.js';
 import {fromAttacktoCash, fromCashtoDic, fromDictoH, fromAttacktoCash_poison, AttackCash} from './definition.js';
 import {timer} from './timer.js';
+import {randomAccess} from './randomAccess.js';
 
 export async function poisoning(){
 	var table = document.getElementById('cashTable');
@@ -22,15 +23,19 @@ export async function poisoning(){
 		await sleep(timer);
 		showHide(fromDictoH[mainURL]);
 		await sleep(timer);
-		cashIP = line_add(table, mainURL, "123.200.200.1");//直書きはのちに変更したい
 		//showHide(fromAttacktoCash_poison);
 		//-- IDビット数によって矢印の太さを変えて表示している
 		showHide(AttackCash[document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent]);
 		await sleep(timer);
+		if(randomAccess() == true){
+			cashIP = line_add(table, mainURL, "123.200.200.1");//直書きはのちに変更したい
+		}else{
+			alert('失敗！');
+		}
 	}else{
 		alert('キャッシュにすでにあるため送り込むことができない');
 	}
 	//--攻撃回数も書き換え
-	document.getElementById('attackCount').textContent = "攻撃回数"+ (2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent) +"回";
+	document.getElementById('attackCount').textContent = "攻撃成功確率 1/"+ (2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent);
 	disabledButton(null, false);
 }
