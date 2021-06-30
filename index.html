@@ -11,12 +11,24 @@
 	<div>
 		<inline id="dictionary"><img src="img/mainsaba2.png"><p>DNS権威サーバ</p></inline>
 		<inline id="usr" class="pull-right"><img class="small" src="img/usr2.png"><p>ユーザ</p></inline> <!-- ユーザ画面の表示 -->
-		<inline id="cash"><img class="small" src="img/cashsaba2.png"><p>キャッシュサーバ</p></inline>
+		<inline id="cash"><img class="small" src="img/cashsaba2.png"><p>キャッシュサーバ</p>
+			<form name="form3">
+				<p>
+				IDのビット数
+				<select name="cashID" id="cashsabaID">
+				</select>
+			</form>
+			</p>
+		</inline>
 	</div>
 	<br><br><br><br>
 
 	<div>
-		<inline id="attacker" class="pull-right"><img class="small" src="img/usr3.png"><p>クラッカー</p></inline>
+		<inline id="attacker" class="pull-right">
+			<img class="small" src="img/usr3.png">
+			<p>クラッカー</p>
+			<p id="attackCount">＜攻撃回数表示＞</p>
+		</inline>
 		<inline id="host">
 			<div>
 				<inline  class="btn-mouseover">
@@ -56,20 +68,20 @@
 <!--プルダウンメニューで -->
 	<br>
 	<div id="inline-block">
-		<button type="button" id="deleteButton" class="buttonimage" onclick="line_delete()">キャッシュ削除</button>
-		<button type="button" id="addButton" class="buttonimage" onclick="addAddress()">IPアドレス追加</button>
+		<button type="button" id="deleteButton" class="buttonimage">キャッシュ削除</button>
+		<button type="button" id="addButton" class="buttonimage">IPアドレス追加</button>
 		<br><br>
 		<div>fast<input id="range" type="range" name="range" min="100" max="2000" value="1000" step
 			="1" style="width:150px">slow</div>
 		<inline class="pull-right"><!--ハッカーサイドのonoff機能を付ける -->
-			<p>クラッカーサイド</p>
+			<p>クラッカーサイド(攻撃上限回数100)</p><!-- のちに攻撃回数選択可能にする-->
 			<form name="form2">
 				<select name="target" id="hackerMenu">
 					<option value="URL1">example.com</option>
 					<option value="URL2">example2.com</option> 
 				</select>
-				<button type="button" id="hackerHost" class="buttonimage" onclick="poisoning()">罠設置</button>
-				<button type="button" id="hackerHost2" class="buttonimage" onclick="onetimePoisoning()">一個ずつ</button>
+				<button type="button" id="hackerHost" class="buttonimage">罠設置</button>
+				<button type="button" id="hackerHost2" class="buttonimage">一個ずつ</button>
 			</form>
 		</inline>
 		<div>
@@ -79,12 +91,13 @@
 					<option value="URL1">example.com</option>
 					<option value="URL2">example2.com</option> 
 				</select>
-				<button type="button" id="buttonHost" class="buttonimage" onclick="surfing()">取得</button>
-				<button type="button" id="onceButton" class="buttonimage" onclick="onetimeCheck()">一個ずつ</button>
+				<button type="button" id="buttonHost" class="buttonimage">取得</button>
+				<button type="button" id="onceButton" class="buttonimage">一個ずつ</button>
 			</form>
 		</div>
 	</div>
-	<script type="text/javascript" src="javascript/myscript.js"></script>
+	<!-- <script type="text/javascript" src="javascript/myscript.js"></script> -->
+	<script type="module" src="index.js"></script>
 </div>
 </body>
 </html>
