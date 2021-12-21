@@ -8,12 +8,14 @@ import {line_add} from './line_add.js';
 //export let Hcheck = 0;
 export let cashIP_2;
 let Hcheck = 0;
+let cashID;
 
 export function onetimeCheck(){
 	disabledButton(button2, true);
 	var table = document.getElementById('cashTable');
 	//var Unum = document.form1.URL.options[document.form1.URL.selectedIndex].value.slice(3,4);
 	var mainURL = document.form1.URL.options[document.form1.URL.selectedIndex].textContent;
+	const bitID = document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent;
 
 	switch(Hcheck){
 		case 0: fromUtoCash.show(); break;
@@ -22,10 +24,15 @@ export function onetimeCheck(){
 					onceDir(fromUtoCash, fromCashtoU); 
 					Hcheck = 4;
 				}else{
+					cashID = Math.floor(Math.random() * (2 ** bitID));
+					document.getElementById('cashsabaID').textContent = "TxID：" + cashID;
+					fromCashtoDic.setOptions({middleLabel: 'キャッシュになかったので他サーバにipアドレスを聞きに行く TxID:'+ cashID});
 					onceDir(fromUtoCash, fromCashtoDic);
 				}break;
 		case 2: onceDir(fromCashtoDic, fromDictoH[mainURL]); break;
-		case 3: cashIP_2 = line_add(table, mainURL, masterData[mainURL]); onceDir(fromDictoH[mainURL], fromDictoCash); break;
+		case 3: cashIP_2 = line_add(table, mainURL, masterData[mainURL]); 
+				fromDictoCash.setOptions({middleLabel: '見つかったIPアドレスを返す TxID:'+ cashID});
+				onceDir(fromDictoH[mainURL], fromDictoCash); break;
 		case 4: onceDir(fromDictoCash, fromCashtoU); break;
 		case 5: if(masterData[mainURL] != cashIP_2){
 					fromCashtoU.hide();

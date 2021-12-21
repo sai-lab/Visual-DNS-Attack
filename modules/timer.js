@@ -1,16 +1,4 @@
-export let timer = 1000;
-
-//var elem = document.getElementById('range');
-/*var rangeValue = function(elem, timer){
-	return function(evt){
-		timer = elem.value;
-	}
-}
-*/
-/*
-elem.addEventListener('input', function(){
-	timer = elem.value;
-});*/
+export let timer = 2000;
 
 export function changeTimer(){
 	timer = document.getElementById('range').value;

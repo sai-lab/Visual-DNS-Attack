@@ -65,6 +65,10 @@ div{
 	width: 700px;
 }
 
+input[type="number"] {
+	width: 7em;
+}
+
 #inline-block{
 	display: inline-block;
 }

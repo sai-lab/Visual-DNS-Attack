@@ -29,10 +29,10 @@ fromCashtoU.setOptions({
 fromDictoCash.setOptions({
   color:'rgb(30, 130, 250)'});
 
-fromHtoU["111.222.333.444"] = new LeaderLine(
+fromHtoU["111.222.144.244"] = new LeaderLine(
   document.getElementById('host2'),
   document.getElementById('usr'), {startPlug: 'arrow1', hide: true});
-fromHtoU["111.222.333.444"].setOptions({endSocket: 'bottom', middleLabel: '通信開始', color:'rgba(30, 200, 30, 0.5)'});
+fromHtoU["111.222.144.244"].setOptions({endSocket: 'bottom', middleLabel: '通信開始', color:'rgba(30, 200, 30, 0.5)'});
 
 fromDictoH["example2.com"] = new LeaderLine(
   document.getElementById('dictionary'),
@@ -58,18 +58,22 @@ window.onload = function(){
   	tr.appendChild(td);
   	document.getElementById('cashTable').appendChild(tr);
 }
+AttackCash[0] = new LeaderLine(
+    document.getElementById('attacker'),
+    LeaderLine.pointAnchor(document.getElementById('cash'),{x: '90%', y:'50%'}), {hide: true, startLabel: '以下同手順であるため省略'});
+
 
 for (var i = 1; i <= 16 ; i++) {
   AttackCash[i] = new LeaderLine(
     document.getElementById('attacker'),
-    document.getElementById('cash'),{hide: true, size: i*3, middleLabel: '攻撃'});
+    LeaderLine.pointAnchor(document.getElementById('cash'),{x: '90%', y: i * 5 + '%'}), {hide: true});
 }
 
 let option;
 for (var i = 2; i <= 16; i++) {
   option = document.createElement('option');
   option.innerHTML=i;
-  document.getElementById('cashsabaID').appendChild(option);
+  document.getElementById('IDbit').appendChild(option);
 }
 
 
