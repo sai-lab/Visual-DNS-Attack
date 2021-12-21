@@ -11,21 +11,27 @@ export async function surfing(){
 	var table = document.getElementById('cashTable');
 	//var Unum = document.form1.URL.options[document.form1.URL.selectedIndex].value.slice(3,4);
 	var mainURL = document.form1.URL.options[document.form1.URL.selectedIndex].textContent;
-	var cashIP;
+	var cashIP, cashID;
+	const bitID = document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent;
  	//console.log(mainURL);
 
 	showHide(fromUtoCash);
+		
 	//console.log(timer);
 	await sleep(timer);
 	//-- キャッシュサーバ内を検索
 	cashIP = checkTable(table, mainURL)
     if(cashIP == false){
+    	cashID = Math.floor(Math.random() * (2 ** bitID));
+		document.getElementById('cashsabaID').textContent = "TxID：" + cashID;
+		fromCashtoDic.setOptions({middleLabel: 'キャッシュになかったので他サーバにipアドレスを聞きに行く TxID:'+ cashID});
     	showHide(fromCashtoDic);
 		await sleep(timer);
 		showHide(fromDictoH[mainURL]);
 		await sleep(timer);
   		cashIP = line_add(table, mainURL, masterData[mainURL]);//document.getElementById('host' + Unum).textContent);// キャッシュサーバにデータ追加
 
+  		fromDictoCash.setOptions({middleLabel: '見つかったIPアドレスを返す TxID:'+ cashID});
   		showHide(fromDictoCash);
   		await sleep(timer);
   		showHide(fromCashtoU);

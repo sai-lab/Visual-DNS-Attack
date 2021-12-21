@@ -56,3 +56,17 @@ export var fromAttacktoCash_poison = new LeaderLine(
   document.getElementById('attacker'),
   //LeaderLine.pointAnchor(document.getElementById('dictionary'), {x: '20%', y: '100%'})
   document.getElementById('cash'), {endSocket: 'left', hide: true, middleLabel: '権威サーバから送られる前にデータを送り込む'});
+
+export var firstAttack = new LeaderLine(
+  document.getElementById('attacker'),
+  //LeaderLine.pointAnchor(document.getElementById('dictionary'), {x: '20%', y: '100%'})
+  document.getElementById('cash'), {endPlug: 'square', hide: true, middleLabel: 'TxID=\"0\"で攻撃…失敗'});
+
+export var lastAttack = new LeaderLine(
+  document.getElementById('attacker'),
+  //LeaderLine.pointAnchor(document.getElementById('dictionary'), {x: '20%', y: '100%'})
+  document.getElementById('cash'), {hide: true, middleLabel: '攻撃成功！！'});
+
+
+
+

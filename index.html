@@ -12,10 +12,11 @@
 		<inline id="dictionary"><img src="img/mainsaba2.png"><p>DNS権威サーバ</p></inline>
 		<inline id="usr" class="pull-right"><img class="small" src="img/usr2.png"><p>ユーザ</p></inline> <!-- ユーザ画面の表示 -->
 		<inline id="cash"><img class="small" src="img/cashsaba2.png"><p>キャッシュサーバ</p>
+			<p id="cashsabaID">TxID: </p>
 			<form name="form3">
 				<p>
-				IDのビット数
-				<select name="cashID" id="cashsabaID">
+				TxIDのビット数
+				<select name="cashID" id="IDbit">
 				</select>
 			</form>
 			</p>
@@ -27,7 +28,7 @@
 		<inline id="attacker" class="pull-right">
 			<img class="small" src="img/usr3.png">
 			<p>クラッカー</p>
-			<p id="attackCount">＜攻撃回数表示＞</p>
+			<p id="attackCount">＜攻撃成功確率表示＞</p>
 		</inline>
 		<inline id="host">
 			<div>
@@ -74,7 +75,7 @@
 		<div>fast<input id="range" type="range" name="range" min="100" max="2000" value="1000" step
 			="1" style="width:150px">slow</div>
 		<inline class="pull-right"><!--ハッカーサイドのonoff機能を付ける -->
-			<p>クラッカーサイド(攻撃上限回数100)</p><!-- のちに攻撃回数選択可能にする-->
+			<p>クラッカーサイド(攻撃上限回数<input type="number" value="10" max="65535" id="attackcount"></input>)</p><!-- のちに攻撃回数選択可能にする-->
 			<form name="form2">
 				<select name="target" id="hackerMenu">
 					<option value="URL1">example.com</option>
