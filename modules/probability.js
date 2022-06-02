@@ -2,7 +2,7 @@ export function probability(a, b){
 
 	let divisor = gcb(a, b);
 
-	return "攻撃成功確率" + a / divisor + "/" + b / divisor;
+	return "攻撃成功確率" + b / divisor + "/" + a / divisor;
 }
 
 function gcb(a, b){
