@@ -7,6 +7,7 @@ import {fromAttacktoCash, fromCashtoDic, fromDictoH, fromAttacktoCash_poison, fi
 import {timer} from './timer.js';
 import {randomAccess} from './randomAccess.js';
 import {leaderLineSelect} from './leaderLineSelect.js';
+import {probability} from './probability.js';
 
 export async function poisoning(){
 	var table = document.getElementById('cashTable');
@@ -48,6 +49,6 @@ export async function poisoning(){
 		alert('キャッシュにすでにあるため送り込むことができない');
 	}
 	//--攻撃回数も書き換え
-	document.getElementById('attackCount').textContent = "攻撃成功確率 1/"+ (2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent);
+	document.getElementById('attackCount').textContent = probability(2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent, document.getElementById('attackcount').value);
 	disabledButton(null, false);
 }

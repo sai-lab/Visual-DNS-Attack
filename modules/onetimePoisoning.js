@@ -5,6 +5,7 @@ import {checkTable} from './checkTable.js';
 import {fromAttacktoCash, fromCashtoDic, fromDictoH, fromAttacktoCash_poison, hacker2, AttackCash, firstAttack, lastAttack} from './definition.js';
 import {randomAccess} from './randomAccess.js';
 import {leaderLineSelect} from './leaderLineSelect.js';
+import {probability} from './probability.js';
 
 let Hcheck = 0;
 let cashIP_2;
@@ -47,7 +48,7 @@ export function onetimePoisoning(){
 				}
 				break;
 		default: Hcheck = -1; disabledButton(hacker2, false);lastAttack.hide();
-				 document.getElementById('attackCount').textContent = "攻撃成功確率 1/"+ (2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent);
+				 document.getElementById('attackCount').textContent = probability(2**document.form3.cashID.options[document.form3.cashID.selectedIndex].textContent, document.getElementById('attackcount').value);
 				 break;
 	}
 	Hcheck++;

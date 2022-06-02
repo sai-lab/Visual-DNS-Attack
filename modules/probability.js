@@ -1,5 +1,3 @@
-
-
 export function probability(a, b){
 
 	let divisor = gcb(a, b);
